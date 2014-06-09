@@ -1,0 +1,683 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Technology Infrastructure | Behind-the-Scenes</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/foundation.css">
+	<link rel="stylesheet" href="css/foundation-icons.css">
+	<script src="js/vendor/modernizr.js"></script>
+	<style>
+		.column, .columns{
+			padding-left:0.6375rem;
+			padding-right:0.6375rem;
+		}
+		.panel.callout{
+			border-color:#f38a3d;
+			background:#f38a3d;
+		}
+		.panel.callout h1,h2,h3,h4,h5,h6 {
+			color:white;
+		}
+		.callout-blank{
+			border: none !important;
+			background:none !important;
+		}
+		.callout-quote{
+			border-color:#2F2F2F;
+			background:none !important;
+		}
+		.callout-quote-card{
+			margin-bottom: 0!important;
+		}
+		.callout-quote h1,h2,h3,h4,h5,h6 {
+			color:#666 !important;
+		}
+
+		
+		/*CSS for slide up*/
+		.imgslideup {
+			position:relative;
+		}
+		.imgslideup :nth-child(2) {
+			display:none;
+			position:absolute;
+			bottom:0;
+			margin-bottom: 0.6375rem;
+			background-color:rgba(243,138,61,0.7);
+			width:100%;
+			height:25%;
+		}
+		.imgslideup :nth-child(2) h1{
+			color:white;
+			text-align:center;
+		}
+		
+		/*CSS for flip card*/
+		.card {
+			position: relative;
+			padding: 0;
+			margin: 0;
+			-webkit-perspective: 5000;
+			perspective: 5000; 
+		}
+
+		.card .container {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transition: 0.6s;
+			transition: 0.6s; 
+		}
+
+		.card .container .front, .card .container .back {
+			width: 100%;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden; 
+		}
+
+		.card .container .front .row, .card .container .front .column, .card .container .front .columns, .card .container .back .row, .card .container .back .column, .card .container .back .columns {
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden; 
+		}
+
+		.card .container .front {
+			height: 100%;
+			z-index: 2; 
+		}
+
+		.card .container .back {
+			position: absolute;
+			height: 100%;
+			left: 0;
+			top: 0;
+			overflow-y: scroll;
+			-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg); 
+		}
+
+		.card .container:hover {
+			-webkit-transform: rotate3d(0, 1, 0, 180deg);
+			transform: rotate3d(0, 1, 0, 180deg); 
+		}
+
+		.card .container {
+			border: solid 1px #eeeeee; 
+		}
+
+		.card .container .front {
+			padding: 0;
+		}
+		
+		.card .container .back {
+			padding: 1em;
+		}
+
+		.card.square .container {
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%; 
+		}            
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<div class="row">
+		<div class="large-12 columns header-banner">
+			<br/><br/>
+			<h1>Technology Infrastructure | Behind-the-Scenes</h1>
+			<br/>
+		</div>
+	</div>
+	<hr/>
+    <!-- Banner Panel -->
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel">
+				<h3>A Look Inside Our Technology Infrastructure</h3>
+				<p>A behind-the-scenes look at what powers the <a href="http://codataengine.org/" target="_blank">Colorado Data Engine</a>,
+				 including applications that are behind our firewall.<br/>
+				Learn about the technology that the Data Initiative 
+				has put into place to make the creation of more 
+				publicly-facing applications like the new <a href="http://www.piton.org/CommunityFacts" target="_blank">Community Facts</a>.</p>
+				<div class="row">
+					<div class="large-4 medium-4 columns" style="text-align:center">
+						<p>
+							<h1><i class="fi-monitor"></i></h1>
+							<a href="#de-demo">Live Demo of Data Engine</a>
+						</p>
+					</div>
+					<div class="large-4 medium-4 columns" style="text-align:center">
+						<p>
+							<h1><i class="fi-puzzle"></i></h1>
+							<a href="#os-tech">Open Source Technologies<br/>Behind the Scene</a>
+						</p>
+					</div>
+					<div class="large-4 medium-4 columns" style="text-align:center">
+						<p>
+							<h1><i class="fi-foundation"></i></h1>
+							<a href="#data-curation">Data Platform Maintenance<br/>& Data Curation</a>
+						</p>
+					</div>        
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Content -->
+	<div class="row" id="de-demo">
+		<div class="large-9 medium-9 columns">
+			<div class="imgslideup">
+				<img src="images/DE_demo.png">
+				<div>
+					<a href="http://codataengine.org/" target="_blank"><h1>Demo</h1></a>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card">
+							<br/><br/>
+							<h1><i class="fi-page-multiple"></i>&nbsp;&nbsp;Find</h1>
+							<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data</h1>
+							<br/>
+							<br/>
+							<h1><i class="fi-widget"></i>&nbsp;&nbsp;Build</h1>
+							<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App</h1>
+							<br/><br/>
+							<h1><i class="fi-cloud"></i>&nbsp;&nbsp;API</h1>
+							<br/><br/>
+						</div>
+					</div>
+					<div class="back">
+						<h5><a href="http://codataengine.org/developer-api" target="_blank">
+						Data Engine API</a></h5>
+						<hr/>
+						<h5>API Examples:</h5>
+						<p>
+							<b>Get datasets list:</b><br/>
+							GET api/dataset.[json|jsonp|xml]?key='yourkey'<br/>
+							<a href="http://codataengine.org/api/dataset.xml?key=e9a7377e656245a92aa7e39735cfafb1.721" target="_blank">
+							<b>XML return</b></a>
+							<br/><br/>
+							<b>Get one dataset:</b><br/>
+							GET api/dataset/[dataset-id]/.[json|jsonp|xml]?key='yourkey'<br/>
+							<a href="http://codataengine.org/api/dataset/5900.xml?key=e9a7377e656245a92aa7e39735cfafb1.721" target="_blank">
+							<b>XML return</b></a>
+						</p>
+					</div>
+			</div>
+		</div>
+	</div>
+
+		</div>
+	</div>
+	
+	<div class="row" id="os-tech">
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel">
+				<img src="images/pic_opencola.jpg">
+			</div>
+		</div>
+		<div class="large-9 medium-9 columns">
+			<div class="callout panel callout-quote" style="text-align:center;">
+				<h1><img src="images/icon_open_quote.png" width="40rem" height="40rem" style="opacity:0.5;"></h1>
+				<h2><i>I do open source because it's fun<br/>
+				and it works… <br/>
+				Companies who [do open source] <br/>
+				will waste less time<br/>
+				and they'll just work better.</i></h2>
+				<h1><img src="images/icon_close_quote.png" width="40rem" height="40rem" style="opacity:0.5;"></h1>
+				<h2>- <i>Linus Torvalds</i></h2>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card" style="text-align:center">
+							<br/>
+							<h1>Data</h1>
+							<br/>
+							<h1>Engine</h1>
+							<br/>								
+						</div>
+					</div>
+					<div class="back">
+						<img src="images/icon_drupal.png" width="60px" height="60px"><br/>
+						<img src="images/icon_mysql.png" width="100px" height="50px" style="float:right"><br/>
+						<br/><img src="images/icon_github.png" width="70px" height="70px"><br/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card" style="text-align:center">
+							<br/>
+							<h1>Data</h1>
+							<br/>
+							<h1>GIS</h1>
+							<br/>								
+						</div>
+					</div>
+					<div class="back">
+						<img src="images/icon_qgis.png" width="70px" height="70px"><br/>
+						<img src="images/icon_postgresql.jpg" width="60px" height="60px" style="float:right"><br/>
+						<br/><img src="images/icon_postgis.jpg" width="60px" height="60px"><br/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card" style="text-align:center">
+							<br/>
+							<h1>App</h1>
+							<br/>
+							<h1>Tool</h1>
+							<br/>								
+						</div>
+					</div>
+					<div class="back">
+						<img src="images/icon_django.jpg" width="50px" height="50px"><br/>
+						<img src="images/icon_python.png" width="50px" height="50px" style="float:right"><br/>
+						<br/><img src="images/icon_qt.png" width="50px" height="50px"><br/>
+						<img src="images/icon_postgresql.jpg" width="50px" height="50px" style="float:right"><br/>
+						<br/><img src="images/icon_github.png" width="50px" height="50px"><br/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card" style="text-align:center">
+							<br/>
+							<h1>COMM.</h1>
+							<br/>
+							<h1>PRES.</h1>
+							<br/>							
+						</div>
+					</div>
+					<div class="back">
+						<img src="images/icon_tikitoki.png" width="50px" height="50px"><br/>
+						<img src="images/icon_prezi.png" width="50px" height="50px" style="float:right"><br/>
+						<br/><img src="images/icon_kumu.png" width="50px" height="50px"><br/>
+						<img src="images/icon_html5.png" width="50px" height="50px" style="float:right"><br/>
+						<br/><img src="images/icon_intuiface.jpg" width="50px" height="50px"><br/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/><br/>
+	<div class="row" id="data-curation">
+		<div class="large-3 medium-3 columns">
+			<div class="row">
+				<div class="large-12 medium-12 columns">
+					<div class="callout panel callout-blank">
+						<h1>&nbsp;</h1>
+						<h1>&nbsp;</h1>
+						<h1>&nbsp;</h1>
+						<h1>&nbsp;</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 medium-12 columns">
+					<div class="card">
+						<div class="container">
+							<div class="front">
+								<div class="callout panel callout-quote-card" style="text-align:center">
+									<h1>&nbsp;</h1>
+									<h1>Data</h1>
+									<br/>
+									<h1>Source</h1>
+									<h1>&nbsp;</h1>
+								</div>
+							</div>
+							<div class="back">
+								<h2>Census</h2>
+								<h2>CDE</h2>
+								<h2>CDPHE</h2>
+								<h3><i class="fi-link"></i>&nbsp;You!</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-9 medium-9 columns">
+			<div class="row">
+				<div class="large-12 medium-12 columns">
+					<a href="#" data-reveal-id="popup-flowchart"><img src="images/Flowchart.png"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-flowchart" class="reveal-modal medium" data-reveal>
+		<img src="images/Flowchart.png" style="display:block;margin-left:auto;margin-right:auto">
+	</div>
+	<br/>
+	
+	<div class="row">
+		<div class="large-6 medium-6 columns">
+			<div class="callout panel callout-quote">
+				<h2>Raw data&nbsp;<i class="fi-page-filled"></i></h2>
+				<h1>&nbsp;&nbsp;<i>Normalization</i>&nbsp;<i class="fi-arrow-right"></i></h1>
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fi-results"></i>&nbsp;&nbsp;Normalized table</h2>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel">
+				<h2>&nbsp;</h2>
+				<h1>Normaliz</h1>
+				<h2>&nbsp;</h2>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel callout-blank">
+				<h1>&nbsp;</h1>
+				<h1>&nbsp;</h1>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel callout-blank">
+				<h1>&nbsp;</h1>
+				<h1>&nbsp;</h1>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel">
+				<h2>&nbsp;</h2>
+				<h1>GeoLocat</h1>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+		<div class="large-6 medium-6 columns">
+			<div class="callout panel callout-quote">
+				<h2>Map&nbsp;<i class="fi-map"></i></h2>
+				<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fi-arrow-left"></i>&nbsp;&nbsp;<i>GeoID</i>&nbsp;&nbsp;<i class="fi-arrow-right"></i></h1>
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attribute table&nbsp;<i class="fi-list-thumbnails"></i></h2>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-9 medium-9 columns">
+			<div class="imgslideup">
+				<img src="images/DEMeta_demo.png">
+				<div>
+					<a href="http://pitondc1.piton.local/datacommons/dcmetadata/home/" target="_blank"><h1>Demo</h1></a>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote-card">
+							<h1>&nbsp;</h1>
+							<h1>&nbsp;&nbsp;JSON</h1>
+							<h1>&nbsp;</h1>
+							<h1>Metadata</h1>
+							<h1>&nbsp;</h1>
+							<h1>&nbsp;</h1>
+							<h1>&nbsp;</h1>
+						</div>
+					</div>
+					<div class="back">
+						<p>
+						<b>dataset =</b><br/>
+						{<br/>
+							"nid":"",<br/>
+							"name":"",<br/>
+							"tables":[],<br/>
+							"fields":[],<br/>
+							"display_name":"",<br/>
+							"pkey":[],<br/>
+							"fkeys":[[]],<br/>
+							"gkey":[],<br/>
+							"tags":[],<br/>
+							"update_date":"update date"<br/>
+						}						
+						</p>
+					</div>
+			</div>
+		</div>
+		<br/><br/>
+	</div>
+	
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel" style="text-align:center">
+				<h1>Piton DB</h1>
+				<h1><i class="fi-upload"></i></h1>
+				<h1>Upload</h1>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel" style="text-align:center">
+				<h1>D.E. DB</h1>
+				<h1><i class="fi-upload-cloud"></i></h1>
+				<h1>Push</h1>
+			</div>
+		</div>
+		<div class="large-6 medium-6 columns">
+			<div class="callout panel" style="text-align:center">
+				<h1>Extract Metadata</h1>
+				<h1><i class="fi-download"></i></h1>
+				<h1>Data Engine MySQL</h1>
+			</div>
+		</div>
+	</div>
+	<br/><br/>
+	<div class="row">
+		<div class="large-6 medium-6 columns">
+			<img src="images/DataCuration.png">
+		</div>
+		<div class="large-6 medium-6 columns">
+			<div class="callout panel" style="text-align:center">
+				<h1>&nbsp;</h1>
+				<h1><i>Data Platform</i></h1>
+				<h1><i>Maintenance</i></h1>
+				<h1><i class="fi-magnifying-glass"></i>&nbsp;&nbsp;<i class="fi-folder"></i>&nbsp;&nbsp;<i class="fi-database"></i></h1>
+				<h1><i>Data Curation</i></h1>
+				<h1><i class="fi-graph-bar"></i>&nbsp;&nbsp;<i class="fi-graph-trend"></i>&nbsp;&nbsp;<i class="fi-graph-pie"></i></h1>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+			<div class="callout panel" style="text-align:center">
+				<br/>
+				<h1>Data</h1>
+				<br/>
+				<h1>Buckets</h1>
+				<br/>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<br/>
+							<h1>Demo-</h1>
+							<br/>
+							<h1>graphic</h1>
+							<br/>
+						</div>
+					</div>
+					<div class="back">
+						<h3>
+							<ul>
+								<li><h4>Census</h4></li>
+								<li><h4>ACS 5-Year</h4></li>
+								<li><h4>Denver Dept. of</h4></li>
+								<h4>Human Services</h4>
+							</ul>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<br/>
+							<h2>Labor</h2>
+							<h3>&amp;</h3>
+							<h2>Employment</h2>
+							<br/>
+						</div>
+					</div>
+					<div class="back">
+						<h3>
+							<ul>
+								<li><h4>Census</h4></li>
+								<li><h4>ACS 5-Year</h4></li>
+								<li><h4>DRCOG</h4></li>
+								<li><h4>LEHD</h4></li>
+							</ul>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<h1>&nbsp;</h1>
+							<h1>Education</h1>
+							<h1>&nbsp;</h1>
+						</div>
+					</div>
+					<div class="back">
+						<h3>
+							<ul>
+								<li><h4>DPS, APS</h4></li>
+								<li><h4>CDE</h4></li>
+								<li><h4>Department of</h4></li>
+								<h4>Higher Education</h4>
+							</ul>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<h1>&nbsp;</h1>
+							<h1>Health</h1>
+							<h1>&nbsp;</h1>
+						</div>
+					</div>
+					<div class="back">
+						<ul>
+							<h4>&nbsp;</h4>
+							<li><h4>CDPHE</h4></li>
+							<h4>&nbsp;</h4>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<h1>Crime</h1>
+							<h1>&amp;</h1>
+							<h1>Safety</h1>
+						</div>
+					</div>
+					<div class="back">
+						<ul>
+							<li><h4>Denver Dept.</h4></li>
+							<h4> of Safety</h4>
+							<li><h4>Denver Dept. of</h4></li>
+							<h4>Human Services</h4>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns">
+			<div class="card">
+				<div class="container">
+					<div class="front">
+						<div class="callout panel callout-quote" style="text-align:center">
+							<h1>&nbsp;</h1>
+							<h1>Housing</h1>
+							<h1>&nbsp;</h1>
+						</div>
+					</div>
+					<div class="back">
+						<ul>
+							<li><h4>Census</h4></li>
+							<li><h4>HMDA</h4></li>
+							<li><h4>Denver Public Trustee</h4></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="large-3 medium-3 columns callout-blank" style="text-align:center">
+			<div class="callout panel">
+				<h1>&nbsp;</h1>
+				<h1>...</h1>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+	</div>
+	
+	<br/><hr/>
+	
+	<!-- Footer -->
+	<div class="row">
+		<div class="large-12 columns">
+			<h4>© Copyright &nbsp;&nbsp;<a href="http://www.piton.org" target="_blank">Piton Foundation</a></h4>
+		</div>
+	</div>
+	<br/>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+		$(document).foundation();
+		$(".imgslideup").hover(function () {
+			$(this).children().last().stop(true,false).slideToggle({direction:"up"},300);
+		})
+    </script>
+</body>
+</html>
